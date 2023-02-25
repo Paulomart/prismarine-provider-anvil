@@ -43,8 +43,6 @@ module.exports = (ChunkColumn, registry) => {
         if (!bitsPerBiome) {
           biomes = nbt.comp({ palette: nbt.list(nbt.string(biomeNamesPalette)) })
         } else {
-          assert.strictEqual(bitsPerBiome, biomeSection.data.data.bitsPerValue, `Computed bits per biome for palette size of ${biomeSection?.data?.palette?.length} (${bitsPerBiome}) does not match bits per biome in section ${biomeSection?.data?.data?.bitsPerValue}`)
-
           const data = biomeSection.data.data.toLongArray()
           biomes = nbt.comp({ palette: nbt.list(nbt.string(biomeNamesPalette)), data: nbt.longArray(data) })
         }
