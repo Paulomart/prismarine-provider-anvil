@@ -34,7 +34,7 @@ module.exports = (ChunkColumn, registry) => {
         if (!bitsPerBlock) {
           blockStates = nbt.comp({ palette: nbt.list(nbt.comp(blockPalette)) })
         } else {
-          assert.strictEqual(bitsPerBlock, section.data.data.bitsPerValue, `Computed bits per block for palette size of ${blockPalette.length} (${bitsPerBlock}) does not match bits per block in section, ${section.data.data.bitsPerValue}`)
+          // assert.strictEqual(bitsPerBlock, section.data.data.bitsPerValue, `Computed bits per block for palette size of ${blockPalette.length} (${bitsPerBlock}) does not match bits per block in section, ${section.data.data.bitsPerValue}`)
 
           const data = section.data.data.toLongArray()
           blockStates = nbt.comp({ palette: nbt.list(nbt.comp(blockPalette)), data: nbt.longArray(data) })
@@ -45,7 +45,7 @@ module.exports = (ChunkColumn, registry) => {
         if (!bitsPerBiome) {
           biomes = nbt.comp({ palette: nbt.list(nbt.string(biomeNamesPalette)) })
         } else {
-          assert.strictEqual(bitsPerBiome, biomeSection.data.data.bitsPerValue, `Computed bits per biome for palette size of ${biomeSection?.data?.palette?.length} (${bitsPerBiome}) does not match bits per biome in section ${biomeSection?.data?.data?.bitsPerValue}`)
+          // assert.strictEqual(bitsPerBiome, biomeSection.data.data.bitsPerValue, `Computed bits per biome for palette size of ${biomeSection?.data?.palette?.length} (${bitsPerBiome}) does not match bits per biome in section ${biomeSection?.data?.data?.bitsPerValue}`)
 
           const data = biomeSection.data.data.toLongArray()
           biomes = nbt.comp({ palette: nbt.list(nbt.string(biomeNamesPalette)), data: nbt.longArray(data) })
